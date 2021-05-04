@@ -895,7 +895,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 617567719}
-  playerCrans: 6
+  playerCrans: 0
+  speed: 1
+  isMoving: 0
 --- !u!212 &617567718
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -934,7 +936,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 0633912121d68b148baf3679712407d5, type: 3}
   m_Color: {r: 0, g: 0.62352943, b: 0.89019614, a: 1}
   m_FlipX: 0

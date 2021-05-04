@@ -7,6 +7,8 @@ public class PlayerScript : MonoBehaviour
     public static PlayerScript Instance;
     public Transform playerTransform;
     public int playerCrans = 0;
+    public float speed;
+    public bool isMoving;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -53,12 +55,14 @@ public class PlayerScript : MonoBehaviour
             case 6:
                 playerMove(playerCrans);
                 break;
+            default:
+                break;
         }
     }
 
     public void playerMove(int index)
     {
-        playerTransform.transform.position = TimelineManager.Instance.characterTimeline[index].transform.position;
+        playerTransform.transform.position = Vector3.MoveTowards(playerTransform.transform.position, TimelineManager.Instance.characterTimeline[index].transform.position, speed * Time.deltaTime);
     }
 
 
