@@ -8,7 +8,7 @@ public class PlayerScript : MonoBehaviour
     public Transform playerTransform;
     public int playerCrans = 0;
     public float speed;
-    public bool isMoving;
+    public bool playerIsMoving;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -22,15 +22,21 @@ public class PlayerScript : MonoBehaviour
             Destroy(gameObject);
         }
 
+
+    }
+    private void Start()
+    {
         playerTransform.transform.position = TimelineManager.Instance.baseCran.transform.position;
     }
 
     private void Update()
     {
-        playerMoveOnTimeline();
+        LimitPlayerCrans();
+        PlayerMoveOnTimeline();
+
     }
 
-    public void playerMoveOnTimeline()
+    public void PlayerMoveOnTimeline()
     {
         switch(playerCrans)
         {
@@ -62,8 +68,33 @@ public class PlayerScript : MonoBehaviour
 
     public void playerMove(int index)
     {
-        playerTransform.transform.position = Vector3.MoveTowards(playerTransform.transform.position, TimelineManager.Instance.characterTimeline[index].transform.position, speed * Time.deltaTime);
+
+        if (playerTransform.transform.position != TimelineManager.Instance.characterTimeline[index].transform.position)
+        {
+            playerIsMoving = true;
+            playerTransform.transform.position = Vector3.MoveTowards(playerTransform.transform.position, TimelineManager.Instance.characterTimeline[index].transform.position, speed * Time.deltaTime);
+        }
+        else if(playerTransform.transform.position == TimelineManager.Instance.characterTimeline[index].transform.position)
+        {
+            playerIsMoving = false;
+        }
     }
 
 
+    public void LimitPlayerCrans()
+    {
+        if(playerCrans > 6)
+        {
+            playerCrans = 6;
+        }
+        else if(playerCrans < 0)
+        {
+            playerCrans = 0;
+        }
+
+        if (playerCrans == 0)
+        {
+            playerIsMoving = false;
+        }
+    }
 }

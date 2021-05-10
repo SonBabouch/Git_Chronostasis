@@ -271,7 +271,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Crans 5
 --- !u!222 &269592136
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -294,7 +294,7 @@ GameObject:
   - component: {fileID: 283520283}
   - component: {fileID: 283520282}
   m_Layer: 5
-  m_Name: Button (3)
+  m_Name: Player Cran 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -312,7 +312,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 751882479}
-  m_Father: {fileID: 911399432}
+  m_Father: {fileID: 455337139}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -377,7 +377,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 283520284}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 283520282}
+        m_MethodName: Crans3
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &283520284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -691,7 +702,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Crans 6
 --- !u!222 &445188951
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -781,6 +792,47 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &455337138
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 455337139}
+  m_Layer: 5
+  m_Name: Player Buttons
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &455337139
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 455337138}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1414595416}
+  - {fileID: 1242516787}
+  - {fileID: 1438863429}
+  - {fileID: 283520281}
+  - {fileID: 1546351934}
+  - {fileID: 1156039725}
+  m_Father: {fileID: 911399432}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -896,8 +948,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 617567719}
   playerCrans: 0
-  speed: 1
-  isMoving: 0
+  speed: 2
+  playerIsMoving: 0
 --- !u!212 &617567718
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1436,7 +1488,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Crans 3
 --- !u!222 &751882481
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1535,12 +1587,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 1414595416}
-  - {fileID: 1242516787}
-  - {fileID: 1438863429}
-  - {fileID: 283520281}
-  - {fileID: 1546351934}
-  - {fileID: 1156039725}
+  - {fileID: 455337139}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1563,7 +1610,7 @@ GameObject:
   - component: {fileID: 1156039727}
   - component: {fileID: 1156039726}
   m_Layer: 5
-  m_Name: Button (5)
+  m_Name: Player Cran 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1581,7 +1628,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1809649557}
-  m_Father: {fileID: 911399432}
+  m_Father: {fileID: 455337139}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1646,7 +1693,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1156039728}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1156039726}
+        m_MethodName: Crans1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1156039728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1698,7 +1756,7 @@ GameObject:
   - component: {fileID: 1242516789}
   - component: {fileID: 1242516788}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Player Cran 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1716,7 +1774,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 269592134}
-  m_Father: {fileID: 911399432}
+  m_Father: {fileID: 455337139}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1781,7 +1839,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1242516790}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1242516788}
+        m_MethodName: Crans5
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1242516790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1969,7 +2038,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Crans 2
 --- !u!222 &1362286113
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1992,7 +2061,7 @@ GameObject:
   - component: {fileID: 1414595418}
   - component: {fileID: 1414595417}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Player Cran 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2010,7 +2079,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 445188949}
-  m_Father: {fileID: 911399432}
+  m_Father: {fileID: 455337139}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -2075,7 +2144,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1414595419}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1414595417}
+        m_MethodName: Crans6
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1414595419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2127,7 +2207,7 @@ GameObject:
   - component: {fileID: 1438863431}
   - component: {fileID: 1438863430}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: Player Cran 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2145,7 +2225,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2047066937}
-  m_Father: {fileID: 911399432}
+  m_Father: {fileID: 455337139}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -2210,7 +2290,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1438863432}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1438863430}
+        m_MethodName: Crans4
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1438863432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2343,7 +2434,7 @@ GameObject:
   - component: {fileID: 1546351936}
   - component: {fileID: 1546351935}
   m_Layer: 5
-  m_Name: Button (4)
+  m_Name: Player Cran 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2361,7 +2452,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1362286111}
-  m_Father: {fileID: 911399432}
+  m_Father: {fileID: 455337139}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -2426,7 +2517,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1546351937}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1546351935}
+        m_MethodName: Crans2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1546351937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2614,7 +2716,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Crans 1
 --- !u!222 &1809649559
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2758,7 +2860,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Crans 4
 --- !u!222 &2047066939
 CanvasRenderer:
   m_ObjectHideFlags: 0
