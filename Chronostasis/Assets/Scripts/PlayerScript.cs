@@ -29,11 +29,9 @@ public class PlayerScript : MonoBehaviour
         playerTransform.transform.position = TimelineManager.Instance.baseCran.transform.position;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         LimitPlayerCrans();
-        PlayerMoveOnTimeline();
-
     }
 
     public void PlayerMoveOnTimeline()
@@ -68,13 +66,12 @@ public class PlayerScript : MonoBehaviour
 
     public void playerMove(int index)
     {
-
+        playerIsMoving = true;
         if (playerTransform.transform.position != TimelineManager.Instance.characterTimeline[index].transform.position)
         {
-            playerIsMoving = true;
             playerTransform.transform.position = Vector3.MoveTowards(playerTransform.transform.position, TimelineManager.Instance.characterTimeline[index].transform.position, speed * Time.deltaTime);
         }
-        else if(playerTransform.transform.position == TimelineManager.Instance.characterTimeline[index].transform.position)
+        else if (playerTransform.transform.position == TimelineManager.Instance.characterTimeline[index].transform.position)
         {
             playerIsMoving = false;
         }

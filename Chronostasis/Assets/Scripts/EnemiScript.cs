@@ -9,15 +9,15 @@ public class EnemiScript : MonoBehaviour
     public float speed;
     public bool enemyIsMoving;
 
+
     private void Start()
     {
         enemiTransform.transform.position = TimelineManager.Instance.baseCran.transform.position;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         LimitEnemiCrans();
-        EnemiMoveOnTimeline();
     }
 
     public void EnemiMoveOnTimeline()
@@ -51,10 +51,9 @@ public class EnemiScript : MonoBehaviour
     }
     public void EnemiMove(int index)
     {
-
+        enemyIsMoving = true;
         if (enemiTransform.transform.position != TimelineManager.Instance.characterTimeline[index].transform.position)
         {
-            enemyIsMoving = true;
             enemiTransform.transform.position = Vector3.MoveTowards(enemiTransform.transform.position, TimelineManager.Instance.characterTimeline[index].transform.position, speed * Time.deltaTime);
         }
         else if (enemiTransform.transform.position == TimelineManager.Instance.characterTimeline[index].transform.position)
@@ -78,4 +77,5 @@ public class EnemiScript : MonoBehaviour
         //    isMoving = false;
         //}
     }
+
 }

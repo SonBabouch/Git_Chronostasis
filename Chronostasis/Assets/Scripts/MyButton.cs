@@ -30,33 +30,111 @@ public class MyButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         isPressed = false;
     }
 
-    public void Crans6()
+    public void useCrans6()
     {
+        StartCoroutine(Crans6());
+    }
+
+    public void useCrans5()
+    {
+        StartCoroutine(Crans5());
+    }
+
+    public void useCrans4()
+    {
+        StartCoroutine(Crans4());
+    }
+    public void useCrans3()
+    {
+        StartCoroutine(Crans3());
+    }
+
+    public void useCrans2()
+    {
+        StartCoroutine(Crans2());
+    }
+
+    public void useCrans1()
+    {
+        StartCoroutine(Crans1());
+    }
+    public IEnumerator Crans6()
+    {
+        yield return new WaitForSeconds(0.1f);
         PlayerScript.Instance.playerCrans = 6;
+        //yield return new WaitForSeconds(0.1f);
+        //PlayerScript.Instance.playerCrans++;
+        //yield return new WaitForSeconds(0.1f);
+        //PlayerScript.Instance.playerCrans++;
+        //yield return new WaitForSeconds(0.1f);
+        //PlayerScript.Instance.playerCrans++;
+        //yield return new WaitForSeconds(0.1f);
+        //PlayerScript.Instance.playerCrans++;
+        //yield return new WaitForSeconds(0.1f);
+        //PlayerScript.Instance.playerCrans++;
+        //yield return new WaitForSeconds(0.1f);
+        //PlayerScript.Instance.playerCrans++;
     }
 
-    public void Crans5()
+    public IEnumerator Crans5()
     {
+        yield return new WaitForSeconds(0.1f);
         PlayerScript.Instance.playerCrans = 5;
+        //yield return new WaitForSeconds(0.1f);
+        //PlayerScript.Instance.playerCrans++;
+        //yield return new WaitForSeconds(0.1f);
+        //PlayerScript.Instance.playerCrans++;
+        //yield return new WaitForSeconds(0.1f);
+        //PlayerScript.Instance.playerCrans++;
+        //yield return new WaitForSeconds(0.1f);
+        //PlayerScript.Instance.playerCrans++;
+        //yield return new WaitForSeconds(0.1f);
+        //PlayerScript.Instance.playerCrans++;
+
     }
 
-    public void Crans4()
+    public IEnumerator Crans4()
     {
+        yield return new WaitForSeconds(0.1f);
         PlayerScript.Instance.playerCrans = 4;
+        //yield return new WaitForSeconds(0.1f);
+        //PlayerScript.Instance.playerCrans++;
+        //yield return new WaitForSeconds(0.1f);
+        //PlayerScript.Instance.playerCrans++;
+        //yield return new WaitForSeconds(0.1f);
+        //PlayerScript.Instance.playerCrans++;
+        //yield return new WaitForSeconds(0.1f);
+        //PlayerScript.Instance.playerCrans++;
+        //yield return new WaitForSeconds(0.1f);
     }
 
-    public void Crans3()
+    public IEnumerator Crans3()
     {
+        yield return new WaitForSeconds(0.1f);
         PlayerScript.Instance.playerCrans = 3;
+        //yield return new WaitForSeconds(0.1f);
+        //PlayerScript.Instance.playerCrans++;
+        //yield return new WaitForSeconds(0.1f);
+        //PlayerScript.Instance.playerCrans++;
+        //yield return new WaitForSeconds(0.1f);
+        //PlayerScript.Instance.playerCrans++;
     }
 
-    public void Crans2()
+    public IEnumerator Crans2()
     {
+        yield return new WaitForSeconds(0.1f);
         PlayerScript.Instance.playerCrans = 2;
+        //yield return new WaitForSeconds(0.1f);
+        //PlayerScript.Instance.playerCrans++;
+        //yield return new WaitForSeconds(0.1f);
+        //PlayerScript.Instance.playerCrans++;
     }
 
-    public void Crans1()
+    public IEnumerator Crans1()
     {
+        yield return new WaitForSeconds(0.1f);
         PlayerScript.Instance.playerCrans = 1;
+        //yield return new WaitForSeconds(0.1f);
+        //PlayerScript.Instance.playerCrans++;
     }
 }

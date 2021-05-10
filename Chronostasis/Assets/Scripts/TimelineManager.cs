@@ -5,11 +5,13 @@ using UnityEngine;
 public class TimelineManager : MonoBehaviour
 {
     public static TimelineManager Instance;
+    public List<EnemiScript> numberOfEnemies = new List<EnemiScript>();
     public Transform[] skillsTimeline = new Transform[7];
     public Transform[] characterTimeline = new Transform[7];
     public Transform baseCran;
     public bool canPlayerMove;
-    public bool canMoveOnTimeline;
+    public bool canEnemiMove;
+    public bool canMove;
     private void Awake()
     {
         if (Instance == null)
@@ -25,17 +27,51 @@ public class TimelineManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (PlayerScript.Instance.playerIsMoving == false && canPlayerMove == true && PlayerScript.Instance.playerCrans != 0)
+        for (int i = 0; i < numberOfEnemies.Count; i++)
         {
-            StartCoroutine(MakePlayerMove());
+            PlayerScript.Instance.PlayerMoveOnTimeline();
+            numberOfEnemies[i].EnemiMoveOnTimeline();
+
+            if (PlayerScript.Instance.playerIsMoving == false && canPlayerMove == true && canMove == true && PlayerScript.Instance.playerCrans != 0 && numberOfEnemies[i].enemiCrans != 0)
+            {
+                StartCoroutine(MakePlayerMove());
+
+            }
+            if (numberOfEnemies[i].enemyIsMoving == false && canEnemiMove == true && canMove == true && numberOfEnemies[i].enemiCrans != 0 && PlayerScript.Instance.playerCrans != 0)
+            {
+                StartCoroutine(MakeEnemiMove());
+            }
         }
+    }
+
+    private void Update()
+    {
+        for (int i = 0; i < numberOfEnemies.Count; i++)
+        {
+            if (PlayerScript.Instance.playerTransform.transform.position == baseCran.transform.position && PlayerScript.Instance.playerCrans == 0 || numberOfEnemies[i].enemiTransform.transform.position == baseCran.transform.position && numberOfEnemies[i].enemiCrans == 0)
+            {
+                canMove = false;
+            }
+            else canMove = true;
+        }
+       
     }
     public IEnumerator MakePlayerMove()
     {
         canPlayerMove = false;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.1f);
         PlayerScript.Instance.playerCrans--;
         canPlayerMove = true;
     }
 
+    public IEnumerator MakeEnemiMove()
+    {
+        for (int i = 0; i < numberOfEnemies.Count; i++)
+        {
+            canEnemiMove = false;
+            yield return new WaitForSeconds(0.1f);
+            numberOfEnemies[i].enemiCrans--;
+            canEnemiMove = true;
+        }
+    }
 }
