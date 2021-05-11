@@ -27,21 +27,21 @@ public class TimelineManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        for (int i = 0; i < numberOfEnemies.Count; i++)
-        {
-            PlayerScript.Instance.PlayerMoveOnTimeline();
-            numberOfEnemies[i].EnemiMoveOnTimeline();
+        //for (int i = 0; i < numberOfEnemies.Count; i++)
+        //{
+        //    PlayerScript.Instance.PlayerMoveOnTimeline();
+        //    numberOfEnemies[i].EnemiMoveOnTimeline();
 
-            if (PlayerScript.Instance.playerIsMoving == false && canPlayerMove == true && canMove == true && PlayerScript.Instance.playerCrans != 0 && numberOfEnemies[i].enemiCrans != 0)
-            {
-                StartCoroutine(MakePlayerMove());
+        //    if (PlayerScript.Instance.playerIsMoving == false && canPlayerMove == true && canMove == true && PlayerScript.Instance.playerCrans != 0 && numberOfEnemies[i].enemiCrans != 0)
+        //    {
+        //        StartCoroutine(MakePlayerMove());
 
-            }
-            if (numberOfEnemies[i].enemyIsMoving == false && canEnemiMove == true && canMove == true && numberOfEnemies[i].enemiCrans != 0 && PlayerScript.Instance.playerCrans != 0)
-            {
-                StartCoroutine(MakeEnemiMove());
-            }
-        }
+        //    }
+        //    if (numberOfEnemies[i].enemyIsMoving == false && canEnemiMove == true && canMove == true && numberOfEnemies[i].enemiCrans != 0 && PlayerScript.Instance.playerCrans != 0)
+        //    {
+        //        StartCoroutine(MakeEnemiMove());
+        //    }
+        //}
     }
 
     private void Update()
@@ -60,7 +60,7 @@ public class TimelineManager : MonoBehaviour
     {
         canPlayerMove = false;
         yield return new WaitForSeconds(0.1f);
-        PlayerScript.Instance.playerCrans--;
+        PlayerScript.Instance.playerTransform.transform.position = Vector3.MoveTowards(PlayerScript.Instance.playerTransform.transform.position, baseCran.transform.position, PlayerScript.Instance.speed * Time.deltaTime);
         canPlayerMove = true;
     }
 
@@ -70,7 +70,7 @@ public class TimelineManager : MonoBehaviour
         {
             canEnemiMove = false;
             yield return new WaitForSeconds(0.1f);
-            numberOfEnemies[i].enemiCrans--;
+            numberOfEnemies[i].enemiTransform.transform.position = Vector3.MoveTowards(numberOfEnemies[i].enemiTransform.transform.position, baseCran.transform.position, numberOfEnemies[i].speed * Time.deltaTime);
             canEnemiMove = true;
         }
     }

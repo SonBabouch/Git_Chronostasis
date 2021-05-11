@@ -7,8 +7,12 @@ public class PlayerScript : MonoBehaviour
     public static PlayerScript Instance;
     public Transform playerTransform;
     public int playerCrans = 0;
+    public int playerIsOnCrans = 0;
     public float speed;
     public bool playerIsMoving;
+
+    public enum PlayerCranEnum {baseCran, firstCran, secondCran, thirdCran, fourthCran, fifthCran, sixthCran}
+    public PlayerCranEnum playerCranEnum;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -36,7 +40,7 @@ public class PlayerScript : MonoBehaviour
 
     public void PlayerMoveOnTimeline()
     {
-        switch(playerCrans)
+        switch (playerCrans)
         {
             case 0:
                 playerMove(playerCrans);
@@ -66,9 +70,10 @@ public class PlayerScript : MonoBehaviour
 
     public void playerMove(int index)
     {
-        playerIsMoving = true;
+
         if (playerTransform.transform.position != TimelineManager.Instance.characterTimeline[index].transform.position)
         {
+            playerIsMoving = true;
             playerTransform.transform.position = Vector3.MoveTowards(playerTransform.transform.position, TimelineManager.Instance.characterTimeline[index].transform.position, speed * Time.deltaTime);
         }
         else if (playerTransform.transform.position == TimelineManager.Instance.characterTimeline[index].transform.position)
@@ -92,6 +97,38 @@ public class PlayerScript : MonoBehaviour
         if (playerCrans == 0)
         {
             playerIsMoving = false;
+        }
+    }
+
+    public void PlayerSwitchEnum()
+    {
+        if(playerTransform.transform.position == TimelineManager.Instance.characterTimeline[0].transform.position)
+        {
+            playerCranEnum = PlayerCranEnum.baseCran;
+        }
+        else if(playerTransform.transform.position == TimelineManager.Instance.characterTimeline[1].transform.position)
+        {
+            playerCranEnum = PlayerCranEnum.firstCran;
+        }
+        else if(playerTransform.transform.position == TimelineManager.Instance.characterTimeline[2].transform.position)
+        {
+            playerCranEnum = PlayerCranEnum.secondCran;
+        }
+        else if(playerTransform.transform.position == TimelineManager.Instance.characterTimeline[3].transform.position)
+        {
+            playerCranEnum = PlayerCranEnum.thirdCran;
+        }
+        else if(playerTransform.transform.position == TimelineManager.Instance.characterTimeline[4].transform.position)
+        {
+            playerCranEnum = PlayerCranEnum.fourthCran;
+        }
+        else if(playerTransform.transform.position == TimelineManager.Instance.characterTimeline[5].transform.position)
+        {
+            playerCranEnum = PlayerCranEnum.fifthCran;
+        }
+        else if(playerTransform.transform.position == TimelineManager.Instance.characterTimeline[6].transform.position)
+        {
+            playerCranEnum = PlayerCranEnum.sixthCran;
         }
     }
 }
