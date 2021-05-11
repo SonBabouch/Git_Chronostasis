@@ -27,21 +27,25 @@ public class TimelineManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //for (int i = 0; i < numberOfEnemies.Count; i++)
-        //{
-        //    PlayerScript.Instance.PlayerMoveOnTimeline();
-        //    numberOfEnemies[i].EnemiMoveOnTimeline();
+        for (int i = 0; i < numberOfEnemies.Count; i++)
+        {
+            if(numberOfEnemies[i].enemiCrans != 0 || PlayerScript.Instance.playerCrans != 0)
+            {
+                PlayerScript.Instance.PlayerMoveOnTimeline();
+                numberOfEnemies[i].EnemiMoveOnTimeline();
+            }
 
-        //    if (PlayerScript.Instance.playerIsMoving == false && canPlayerMove == true && canMove == true && PlayerScript.Instance.playerCrans != 0 && numberOfEnemies[i].enemiCrans != 0)
-        //    {
-        //        StartCoroutine(MakePlayerMove());
 
-        //    }
-        //    if (numberOfEnemies[i].enemyIsMoving == false && canEnemiMove == true && canMove == true && numberOfEnemies[i].enemiCrans != 0 && PlayerScript.Instance.playerCrans != 0)
-        //    {
-        //        StartCoroutine(MakeEnemiMove());
-        //    }
-        //}
+            if (PlayerScript.Instance.playerIsMoving == false && canPlayerMove == true && canMove == true && PlayerScript.Instance.playerCrans != 0 && numberOfEnemies[i].enemiCrans != 0)
+            {
+                MakePlayerMove();
+
+            }
+            if (numberOfEnemies[i].enemiIsMoving == false && canEnemiMove == true && canMove == true && numberOfEnemies[i].enemiCrans != 0 && PlayerScript.Instance.playerCrans != 0)
+            {
+                MakeEnemiMove();
+            }
+        }
     }
 
     private void Update()
@@ -56,21 +60,21 @@ public class TimelineManager : MonoBehaviour
         }
        
     }
-    public IEnumerator MakePlayerMove()
+    public void MakePlayerMove()
     {
         canPlayerMove = false;
-        yield return new WaitForSeconds(0.1f);
-        PlayerScript.Instance.playerTransform.transform.position = Vector3.MoveTowards(PlayerScript.Instance.playerTransform.transform.position, baseCran.transform.position, PlayerScript.Instance.speed * Time.deltaTime);
+
+        PlayerScript.Instance.playerCrans--;
         canPlayerMove = true;
     }
 
-    public IEnumerator MakeEnemiMove()
+    public void MakeEnemiMove()
     {
         for (int i = 0; i < numberOfEnemies.Count; i++)
         {
             canEnemiMove = false;
-            yield return new WaitForSeconds(0.1f);
-            numberOfEnemies[i].enemiTransform.transform.position = Vector3.MoveTowards(numberOfEnemies[i].enemiTransform.transform.position, baseCran.transform.position, numberOfEnemies[i].speed * Time.deltaTime);
+
+            numberOfEnemies[i].enemiCrans--;
             canEnemiMove = true;
         }
     }

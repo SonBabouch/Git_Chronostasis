@@ -6,7 +6,6 @@ public class EnemiScript : MonoBehaviour
 {
     public Transform enemiTransform;
     public int enemiCrans = 0;
-    public int enemiIsOnCrans = 0;
     public float speed;
     public bool enemiIsMoving;
     public enum EnemiCranEnum { baseCran, firstCran, secondCran, thirdCran, fourthCran, fifthCran, sixthCran }
@@ -20,49 +19,54 @@ public class EnemiScript : MonoBehaviour
     private void FixedUpdate()
     {
         LimitEnemiCrans();
+        EnemiSwitchEnum();
     }
 
-    //public void EnemiMoveOnTimeline()
-    //{
-    //    switch (enemiCrans)
-    //    {
-    //        case 0:
-    //            EnemiMove(enemiCrans);
-    //            break;
-    //        case 1:
-    //            EnemiMove(enemiCrans);
-    //            break;
-    //        case 2:
-    //            EnemiMove(enemiCrans);
-    //            break;
-    //        case 3:
-    //            EnemiMove(enemiCrans);
-    //            break;
-    //        case 4:
-    //            EnemiMove(enemiCrans);
-    //            break;
-    //        case 5:
-    //            EnemiMove(enemiCrans);
-    //            break;
-    //        case 6:
-    //            EnemiMove(enemiCrans);
-    //            break;
-    //        default:
-    //            break;
-    //    }
-    //}
-    //public void EnemiMove(int index)
-    //{
-    //    if (enemiTransform.transform.position != TimelineManager.Instance.characterTimeline[index].transform.position)
-    //    {
-    //        enemiIsMoving = true;
-    //        enemiTransform.transform.position = Vector3.MoveTowards(enemiTransform.transform.position, TimelineManager.Instance.characterTimeline[index].transform.position, speed * Time.deltaTime);
-    //    }
-    //    else if (enemiTransform.transform.position == TimelineManager.Instance.characterTimeline[index].transform.position)
-    //    {
-    //        enemiIsMoving = false;
-    //    }
-    //}
+    public void EnemiMoveOnTimeline()
+    {
+        if(TimelineManager.Instance.canMove == true)
+        {
+            switch (enemiCrans)
+            {
+                case 0:
+                    EnemiMove(enemiCrans);
+                    break;
+                case 1:
+                    EnemiMove(enemiCrans);
+                    break;
+                case 2:
+                    EnemiMove(enemiCrans);
+                    break;
+                case 3:
+                    EnemiMove(enemiCrans);
+                    break;
+                case 4:
+                    EnemiMove(enemiCrans);
+                    break;
+                case 5:
+                    EnemiMove(enemiCrans);
+                    break;
+                case 6:
+                    EnemiMove(enemiCrans);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+    }
+    public void EnemiMove(int index)
+    {
+        if (enemiTransform.transform.position != TimelineManager.Instance.characterTimeline[index].transform.position)
+        {
+            enemiIsMoving = true;
+            enemiTransform.transform.position = Vector3.MoveTowards(enemiTransform.transform.position, TimelineManager.Instance.characterTimeline[index].transform.position, speed * Time.deltaTime);
+        }
+        else if (enemiTransform.transform.position == TimelineManager.Instance.characterTimeline[index].transform.position)
+        {
+            enemiIsMoving = false;
+        }
+    }
     public void LimitEnemiCrans()
     {
         if (enemiCrans > 6)
@@ -80,7 +84,7 @@ public class EnemiScript : MonoBehaviour
         }
     }
 
-    public void EnemiPositionBools()
+    public void EnemiSwitchEnum()
     {
         if (enemiTransform.transform.position == TimelineManager.Instance.characterTimeline[0].transform.position)
         {

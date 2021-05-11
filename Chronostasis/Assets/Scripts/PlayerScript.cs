@@ -7,7 +7,6 @@ public class PlayerScript : MonoBehaviour
     public static PlayerScript Instance;
     public Transform playerTransform;
     public int playerCrans = 0;
-    public int playerIsOnCrans = 0;
     public float speed;
     public bool playerIsMoving;
 
@@ -36,36 +35,41 @@ public class PlayerScript : MonoBehaviour
     private void FixedUpdate()
     {
         LimitPlayerCrans();
+        PlayerSwitchEnum();
     }
 
     public void PlayerMoveOnTimeline()
     {
-        switch (playerCrans)
+        if(TimelineManager.Instance.canMove == true)
         {
-            case 0:
-                playerMove(playerCrans);
-                break;
-            case 1:
-                playerMove(playerCrans);
-                break;
-            case 2:
-                playerMove(playerCrans);
-                break;
-            case 3:
-                playerMove(playerCrans);
-                break;
-            case 4:
-                playerMove(playerCrans);
-                break;
-            case 5:
-                playerMove(playerCrans);
-                break;
-            case 6:
-                playerMove(playerCrans);
-                break;
-            default:
-                break;
+            switch (playerCrans)
+            {
+                case 0:
+                    playerMove(playerCrans);
+                    break;
+                case 1:
+                    playerMove(playerCrans);
+                    break;
+                case 2:
+                    playerMove(playerCrans);
+                    break;
+                case 3:
+                    playerMove(playerCrans);
+                    break;
+                case 4:
+                    playerMove(playerCrans);
+                    break;
+                case 5:
+                    playerMove(playerCrans);
+                    break;
+                case 6:
+                    playerMove(playerCrans);
+                    break;
+                default:
+                    break;
+            }
         }
+
     }
 
     public void playerMove(int index)

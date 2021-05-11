@@ -941,6 +941,7 @@ MonoBehaviour:
   playerCrans: 0
   speed: 2
   playerIsMoving: 0
+  playerCranEnum: 0
 --- !u!212 &617567718
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2671,7 +2672,8 @@ MonoBehaviour:
   enemiTransform: {fileID: 1631437692}
   enemiCrans: 0
   speed: 2
-  enemyIsMoving: 0
+  enemiIsMoving: 0
+  enemiCranEnum: 0
 --- !u!212 &1631437691
 SpriteRenderer:
   m_ObjectHideFlags: 0
