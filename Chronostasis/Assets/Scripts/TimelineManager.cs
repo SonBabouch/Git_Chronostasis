@@ -29,21 +29,16 @@ public class TimelineManager : MonoBehaviour
     {
         for (int i = 0; i < numberOfEnemies.Count; i++)
         {
-            if(numberOfEnemies[i].enemiCrans != 0 || PlayerScript.Instance.playerCrans != 0)
+            if (numberOfEnemies[i].enemiCrans != 0 || PlayerScript.Instance.playerCrans != 0)
             {
                 PlayerScript.Instance.PlayerMoveOnTimeline();
                 numberOfEnemies[i].EnemiMoveOnTimeline();
             }
 
 
-            if (PlayerScript.Instance.playerIsMoving == false && canPlayerMove == true && canMove == true && PlayerScript.Instance.playerCrans != 0 && numberOfEnemies[i].enemiCrans != 0)
-            {
-                MakePlayerMove();
-
-            }
-            if (numberOfEnemies[i].enemiIsMoving == false && canEnemiMove == true && canMove == true && numberOfEnemies[i].enemiCrans != 0 && PlayerScript.Instance.playerCrans != 0)
-            {
-                MakeEnemiMove();
+            if (numberOfEnemies[i].enemiIsMoving == false && canEnemiMove == true && canMove == true && numberOfEnemies[i].enemiCranEnum != EnemiScript.EnemiCranEnum.baseCran && PlayerScript.Instance.playerCranEnum != PlayerScript.PlayerCranEnum.baseCran && PlayerScript.Instance.playerIsMoving == false && canPlayerMove == true)
+            { 
+                MakeElementsMove();
             }
         }
     }
@@ -52,30 +47,44 @@ public class TimelineManager : MonoBehaviour
     {
         for (int i = 0; i < numberOfEnemies.Count; i++)
         {
-            if (PlayerScript.Instance.playerTransform.transform.position == baseCran.transform.position && PlayerScript.Instance.playerCrans == 0 || numberOfEnemies[i].enemiTransform.transform.position == baseCran.transform.position && numberOfEnemies[i].enemiCrans == 0)
+            if (PlayerScript.Instance.playerCranEnum == PlayerScript.PlayerCranEnum.baseCran || numberOfEnemies[i].enemiCranEnum == EnemiScript.EnemiCranEnum.baseCran)
             {
                 canMove = false;
             }
             else canMove = true;
         }
-       
-    }
-    public void MakePlayerMove()
-    {
-        canPlayerMove = false;
 
-        PlayerScript.Instance.playerCrans--;
-        canPlayerMove = true;
+        FixFirstCran();
     }
 
-    public void MakeEnemiMove()
+    public void MakeElementsMove()
     {
         for (int i = 0; i < numberOfEnemies.Count; i++)
         {
             canEnemiMove = false;
+            canPlayerMove = false;
 
+            PlayerScript.Instance.playerCrans--;
             numberOfEnemies[i].enemiCrans--;
+
+            canPlayerMove = true;
             canEnemiMove = true;
         }
+    }
+
+    public void FixFirstCran()
+    {
+        for (int i = 0; i < numberOfEnemies.Count; i++)
+        {
+            if (PlayerScript.Instance.playerCranEnum == PlayerScript.PlayerCranEnum.firstCran && numberOfEnemies[i].enemiCranEnum == EnemiScript.EnemiCranEnum.firstCran)
+            {
+                PlayerScript.Instance.playerCrans = 0;
+                numberOfEnemies[i].enemiCrans = 0;
+
+                PlayerScript.Instance.playerTransform.transform.position = Vector3.MoveTowards(PlayerScript.Instance.playerTransform.transform.position, baseCran.transform.position, PlayerScript.Instance.speed * Time.deltaTime);
+                numberOfEnemies[i].enemiTransform.transform.position = Vector3.MoveTowards(numberOfEnemies[i].enemiTransform.transform.position, baseCran.transform.position, numberOfEnemies[i].speed * Time.deltaTime);
+            }
+        }
+
     }
 }

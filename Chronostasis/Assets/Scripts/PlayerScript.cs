@@ -40,8 +40,6 @@ public class PlayerScript : MonoBehaviour
 
     public void PlayerMoveOnTimeline()
     {
-        if(TimelineManager.Instance.canMove == true)
-        {
             switch (playerCrans)
             {
                 case 0:
@@ -68,8 +66,6 @@ public class PlayerScript : MonoBehaviour
                 default:
                     break;
             }
-        }
-
     }
 
     public void playerMove(int index)

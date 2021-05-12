@@ -24,8 +24,6 @@ public class EnemiScript : MonoBehaviour
 
     public void EnemiMoveOnTimeline()
     {
-        if(TimelineManager.Instance.canMove == true)
-        {
             switch (enemiCrans)
             {
                 case 0:
@@ -52,8 +50,6 @@ public class EnemiScript : MonoBehaviour
                 default:
                     break;
             }
-        }
-
     }
     public void EnemiMove(int index)
     {
@@ -113,6 +109,14 @@ public class EnemiScript : MonoBehaviour
         else if (enemiTransform.transform.position == TimelineManager.Instance.characterTimeline[6].transform.position)
         {
             enemiCranEnum = EnemiCranEnum.sixthCran;
+        }
+    }
+
+    public void EnemiRandomMove()
+    {
+        if(enemiCranEnum == EnemiCranEnum.baseCran && PlayerScript.Instance.playerCranEnum != PlayerScript.PlayerCranEnum.baseCran && enemiCrans == 0)
+        {
+            enemiCrans = Random.Range(1, 7);
         }
     }
 }
