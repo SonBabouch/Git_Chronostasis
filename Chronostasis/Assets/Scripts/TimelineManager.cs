@@ -6,12 +6,16 @@ public class TimelineManager : MonoBehaviour
 {
     public static TimelineManager Instance;
     public List<EnemiScript> numberOfEnemies = new List<EnemiScript>();
+    public List<SkillScript> numberOfSkills = new List<SkillScript>();
     public Transform[] skillsTimeline = new Transform[7];
     public Transform[] characterTimeline = new Transform[7];
     public Transform baseCran;
     public bool canPlayerMove;
     public bool canEnemiMove;
+    public bool canSkillMove;
     public bool canMove;
+
+    public GameObject skill;
     private void Awake()
     {
         if (Instance == null)
@@ -33,6 +37,7 @@ public class TimelineManager : MonoBehaviour
             {
                 PlayerScript.Instance.PlayerMoveOnTimeline();
                 numberOfEnemies[i].EnemiMoveOnTimeline();
+                numberOfSkills[i].SkillMoveOnTimeline();
             }
 
 
@@ -63,13 +68,26 @@ public class TimelineManager : MonoBehaviour
         {
             canEnemiMove = false;
             canPlayerMove = false;
+            canSkillMove = false;
 
             PlayerScript.Instance.playerCrans--;
             numberOfEnemies[i].enemiCrans--;
+            numberOfSkills[i].skillCran--;
+
 
             canPlayerMove = true;
             canEnemiMove = true;
+            canSkillMove = true;
         }
+    }
+
+    public void MakeSkillMove()
+    {
+        for (int i = 0; i < numberOfSkills.Count; i++)
+        {
+
+        }
+
     }
 
     public void FixFirstCran()
@@ -87,4 +105,11 @@ public class TimelineManager : MonoBehaviour
         }
 
     }
+
+    public void SpawnSkillCran1()
+    {
+        numberOfSkills.Add(skill.GetComponent<SkillScript>());
+        Instantiate(skill, skillsTimeline[1].transform.position, Quaternion.identity);
+    }
+
 }

@@ -11,17 +11,14 @@ public class SkillScript : MonoBehaviour
     public enum SkillCranEnum { baseCran, firstCran, secondCran, thirdCran, fourthCran, fifthCran, sixthCran }
     public SkillCranEnum skillCranEnum;
 
-
+    private void Start()
+    {
+       skillTransform.transform.position = TimelineManager.Instance.baseCran.transform.position;
+    }
     private void FixedUpdate()
     {
         LimitSkillCrans();
         SkillSwitchEnum();
-        SkillMoveOnTimeline();
-        //if(TimelineManager.Instance.canMove == true)
-        //{
-        //    TimelineManager.Instance.MakeSkillMove();
-        //}
-
     }
 
     public void SkillMoveOnTimeline()
