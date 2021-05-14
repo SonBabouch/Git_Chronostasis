@@ -10,7 +10,8 @@ public class MyButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     public bool isPressed;
     public bool isOnButton;
 
-    public  void OnPointerDown(PointerEventData eventData)
+
+    public void OnPointerDown(PointerEventData eventData)
     {
         isPressed = true;
     }
@@ -25,7 +26,7 @@ public class MyButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         isOnButton = false;
     }
 
-    public  void OnPointerUp(PointerEventData eventData)
+    public void OnPointerUp(PointerEventData eventData)
     {
         isPressed = false;
     }
@@ -58,4 +59,5 @@ public class MyButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     {
         PlayerScript.Instance.playerCrans = 1;
     }
+
 }
