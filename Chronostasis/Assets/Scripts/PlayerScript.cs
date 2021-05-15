@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class PlayerScript : MonoBehaviour
     public int playerCrans = 0;
     public float speed;
     public bool playerIsMoving;
+
+    public Text playerHealthText;
 
     public float playerHealth = 100f;
     public float playerMinHealth = 0f;
@@ -40,6 +43,12 @@ public class PlayerScript : MonoBehaviour
     {
         LimitPlayerCrans();
         PlayerSwitchEnum();
+
+        if (playerHealthText != null)
+        {
+            playerHealthText.text = "Player Health : " + playerHealth.ToString();
+        }
+
     }
 
     public void PlayerMoveOnTimeline()

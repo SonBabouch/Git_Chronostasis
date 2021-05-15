@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemiScript : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class EnemiScript : MonoBehaviour
     public int enemiCrans = 0;
     public float speed;
     public bool enemiIsMoving;
+
+    public Text enemiHealthText;
 
     public float enemiHealth = 100f;
     public float enemiMaxHealth = 100f;
@@ -24,6 +27,11 @@ public class EnemiScript : MonoBehaviour
     {
         LimitEnemiCrans();
         EnemiSwitchEnum();
+
+        if (enemiHealthText != null)
+        {
+            enemiHealthText.text = "Enemi Health : " + enemiHealth.ToString();
+        }
     }
 
     public void EnemiMoveOnTimeline()
