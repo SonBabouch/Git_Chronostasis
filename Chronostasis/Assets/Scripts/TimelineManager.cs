@@ -52,7 +52,7 @@ public class TimelineManager : MonoBehaviour
     {
         for (int i = 0; i < numberOfEnemies.Count; i++)
         {
-            if (PlayerScript.Instance.playerCranEnum == PlayerScript.PlayerCranEnum.baseCran || numberOfEnemies[i].enemiCranEnum == EnemiScript.EnemiCranEnum.baseCran)
+            if (PlayerScript.Instance.playerCranEnum == PlayerScript.PlayerCranEnum.baseCran || numberOfEnemies[i].enemiCranEnum == EnemiScript.EnemiCranEnum.baseCran || numberOfSkills[i].skillCranEnum == SkillScript.SkillCranEnum.baseCran)
             {
                 canMove = false;
             }
@@ -81,14 +81,6 @@ public class TimelineManager : MonoBehaviour
         }
     }
 
-    public void MakeSkillMove()
-    {
-        for (int i = 0; i < numberOfSkills.Count; i++)
-        {
-
-        }
-
-    }
 
     public void FixFirstCran()
     {
@@ -98,12 +90,13 @@ public class TimelineManager : MonoBehaviour
             {
                 PlayerScript.Instance.playerCrans = 0;
                 numberOfEnemies[i].enemiCrans = 0;
+                numberOfSkills[i].skillCran = 0;
 
                 PlayerScript.Instance.playerTransform.transform.position = Vector3.MoveTowards(PlayerScript.Instance.playerTransform.transform.position, baseCran.transform.position, PlayerScript.Instance.speed * Time.deltaTime);
                 numberOfEnemies[i].enemiTransform.transform.position = Vector3.MoveTowards(numberOfEnemies[i].enemiTransform.transform.position, baseCran.transform.position, numberOfEnemies[i].speed * Time.deltaTime);
+                numberOfSkills[i].skillTransform.transform.position = Vector3.MoveTowards(numberOfSkills[i].skillTransform.transform.position, baseCran.transform.position, numberOfEnemies[i].speed * Time.deltaTime);
             }
         }
-
     }
 
     public void SpawnSkillCran1()

@@ -10,6 +10,10 @@ public class PlayerScript : MonoBehaviour
     public float speed;
     public bool playerIsMoving;
 
+    public float playerHealth = 100f;
+    public float playerMinHealth = 0f;
+    public float playerMaxHealth = 100f;
+
     public enum PlayerCranEnum {baseCran, firstCran, secondCran, thirdCran, fourthCran, fifthCran, sixthCran}
     public PlayerCranEnum playerCranEnum;
     // Start is called before the first frame update

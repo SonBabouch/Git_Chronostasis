@@ -111,5 +111,33 @@ public class SkillScript : MonoBehaviour
         }
     }
 
-    //Demain faire en sorte que le skills bouge et lorsqu'il que skill cran = 0 regarder si il y a un ennemi ou un joueur si il y a un des 2 faire des dégats
+    public void SkillMoveCran1()
+    {
+        skillCran = 1;
+    }
+
+    public void SkillMoveCran2()
+    {
+        skillCran = 2;
+    }
+
+    public void SkillMoveCran3()
+    {
+        skillCran = 3;
+    }
+
+    public void SkillMoveCran4()
+    {
+        skillCran = 4;
+    }
+
+    public void SkillMoveCran5()
+    {
+        skillCran = 5;
+    }
+
+    public void SkillMoveCran6()
+    {
+        skillCran = 6;
+    }
 }

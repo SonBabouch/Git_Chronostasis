@@ -8,6 +8,10 @@ public class EnemiScript : MonoBehaviour
     public int enemiCrans = 0;
     public float speed;
     public bool enemiIsMoving;
+
+    public float enemiHealth = 100f;
+    public float enemiMaxHealth = 100f;
+    public float enemiMinHealth = 0f;
     public enum EnemiCranEnum { baseCran, firstCran, secondCran, thirdCran, fourthCran, fifthCran, sixthCran }
     public EnemiCranEnum enemiCranEnum;
 
@@ -112,11 +116,33 @@ public class EnemiScript : MonoBehaviour
         }
     }
 
-    public void EnemiRandomMove()
+    public void EnemiMoveCran1()
     {
-        if(enemiCranEnum == EnemiCranEnum.baseCran && PlayerScript.Instance.playerCranEnum != PlayerScript.PlayerCranEnum.baseCran && enemiCrans == 0)
-        {
-            enemiCrans = Random.Range(1, 7);
-        }
+            enemiCrans = 1;
+    }
+
+    public void EnemiMoveCran2()
+    {
+        enemiCrans = 2;
+    }
+
+    public void EnemiMoveCran3()
+    {
+        enemiCrans = 3;
+    }
+
+    public void EnemiMoveCran4()
+    {
+        enemiCrans = 4;
+    }
+
+    public void EnemiMoveCran5()
+    {
+        enemiCrans = 5;
+    }
+
+    public void EnemiMoveCran6()
+    {
+        enemiCrans = 6;
     }
 }
