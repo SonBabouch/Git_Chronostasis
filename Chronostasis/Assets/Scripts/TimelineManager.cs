@@ -45,6 +45,17 @@ public class TimelineManager : MonoBehaviour
             { 
                 MakeElementsMove();
             }
+
+            if (numberOfSkills[i].skillCranEnum == SkillScript.SkillCranEnum.baseCran && PlayerScript.Instance.playerCranEnum == PlayerScript.PlayerCranEnum.baseCran && !numberOfSkills[i].isUsed && numberOfSkills[i].skillCran == 0)
+            {
+                PlayerScript.Instance.playerHealth -= 10f;
+                numberOfSkills[i].isUsed = true;
+            }
+            if (numberOfSkills[i].skillCranEnum == SkillScript.SkillCranEnum.baseCran && numberOfEnemies[i].enemiCranEnum == EnemiScript.EnemiCranEnum.baseCran && !numberOfSkills[i].isUsed && numberOfSkills[i].skillCran == 0)
+            {
+                numberOfEnemies[i].enemiHealth -= 10f;
+                numberOfSkills[i].isUsed = true;
+            }
         }
     }
 

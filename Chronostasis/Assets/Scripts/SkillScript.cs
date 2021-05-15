@@ -10,6 +10,7 @@ public class SkillScript : MonoBehaviour
     public bool skillIsMoving;
     public enum SkillCranEnum { baseCran, firstCran, secondCran, thirdCran, fourthCran, fifthCran, sixthCran }
     public SkillCranEnum skillCranEnum;
+    public bool isUsed;
 
     private void Start()
     {
@@ -114,30 +115,42 @@ public class SkillScript : MonoBehaviour
     public void SkillMoveCran1()
     {
         skillCran = 1;
+        StartCoroutine(Delay());
     }
 
     public void SkillMoveCran2()
     {
         skillCran = 2;
+        StartCoroutine(Delay());
     }
 
     public void SkillMoveCran3()
     {
         skillCran = 3;
+        StartCoroutine(Delay());
     }
 
     public void SkillMoveCran4()
     {
         skillCran = 4;
+        StartCoroutine(Delay());
     }
 
     public void SkillMoveCran5()
     {
         skillCran = 5;
+        StartCoroutine(Delay());
     }
 
     public void SkillMoveCran6()
     {
         skillCran = 6;
+        StartCoroutine(Delay());
+    }
+
+    public IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(0.5f);
+        isUsed = false;
     }
 }
